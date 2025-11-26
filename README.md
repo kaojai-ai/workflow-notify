@@ -73,6 +73,7 @@ jobs:
 | `message` | _empty_ | Rich Slack Markdown body appended under the workflow metadata. |
 | `status` | _empty_ | Overrides GitHub's computed job status (`success`, `failure`, `cancelled`, etc.). Leave empty to auto-detect. |
 | `version` | _empty_ | Overrides the version shown in the notification. Useful for custom release tags. |
+| `service_name` | _empty_ | Optional service name to display in the header (defaults to repository name). |
 
 ### Tips
 

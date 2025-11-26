@@ -36,6 +36,10 @@ inputs:
     description: "Optional version override"
     required: false
     default: ""
+  service_name:
+    description: "Optional service name to display in header (defaults to repository name)"
+    required: false
+    default: ""
 branding:
   color: "4A154B"
   icon: "hash"
@@ -75,6 +79,7 @@ runs:
         status_input: ${{ inputs.status }}
         override_version: ${{ inputs.version }}
         tag_version: ${{ steps.ver.outputs.head_tag }}
+        service_name: ${{ inputs.service_name }}
       run: |
         set -euo pipefail
 
@@ -123,7 +128,8 @@ runs:
           label: job_status ? job_status.charAt(0).toUpperCase() + job_status.slice(1) : 'Status Unknown'
         };
 
-        const header_text = `${status.emoji} ${prefix} • ${repository} ${version ? `(${version})` : ''}`;
+        const service_name = process.env.service_name || repository;
+        const header_text = `${status.emoji} ${prefix} • ${service_name} ${version ? `(${version})` : ''}`;
 
         const body_message = message || `Built with love 💚 <https://kaojai.ai|KaoJai.ai>`;
 
