@@ -129,7 +129,7 @@ runs:
         };
 
         const service_name = process.env.service_name || repository;
-        const header_text = `${status.emoji} ${prefix} • ${service_name} ${version ? `(${version})` : ''}`;
+        const header_text = `${prefix} ${status.emoji} • ${service_name} ${version ? `(${version})` : ''}`;
 
         const body_message = message || `Built with love 💚 <https://kaojai.ai|KaoJai.ai>`;
 
